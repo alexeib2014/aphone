@@ -25,7 +25,7 @@ SECRET_KEY = '9*x*q6@)lcw9_n6vm(_t1i6fmfuy*%w5q&2(osi!tek82_p$it'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.43.1']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -120,3 +120,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+try:
+    from localize.settings import *
+except:
+    pass
