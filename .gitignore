@@ -1,0 +1,6 @@
+/.project
+/.pydevproject
+/backend/localize
+/backend/venv
+/dev
+*.pyc
