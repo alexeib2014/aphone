@@ -1,8 +1,10 @@
 #!/usr/bin/env python
 import os
 import sys
+import pydevd
 
 if __name__ == "__main__":
+    pydevd.settrace('192.168.43.123', stdoutToServer=True, stderrToServer=True)
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "project.settings")
     try:
         from django.core.management import execute_from_command_line
