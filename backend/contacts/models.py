@@ -9,7 +9,6 @@ class Person(models.Model):
     first_name  = models.CharField( max_length=100, default='' )
     middle_name = models.CharField( max_length=100, default='', blank=True )
     last_name   = models.CharField( max_length=100, default='', blank=True )
-    tags        = models.CharField( max_length=100, default='', blank=True )
     comment     = models.TextField(                 default='', blank=True )
     
     def __unicode__(self):
@@ -20,3 +19,7 @@ class Phone(models.Model):
     number  = models.CharField( max_length=100, default='' )
     type    = models.CharField( max_length=100, default='', blank=True )
     comment = models.TextField(                 default='', blank=True )
+
+class Tag(models.Model):
+    person  = models.ForeignKey(Person, on_delete=models.CASCADE)
+    tag     = models.CharField( max_length=20, default='' )
