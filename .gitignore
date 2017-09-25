@@ -1,5 +1,6 @@
 /.project
 /.pydevproject
+/.idea
 /backend/localize
 /backend/venv
 /dev
