@@ -2,6 +2,6 @@
 /.pydevproject
 /.idea
 /backend/localize
-/backend/venv
+/venv
 /dev
 *.pyc
