@@ -11,13 +11,14 @@
 <ion-content class="outer-content">
   <ion-list>
 
-    <ion-item-sliding *ngFor="let contact of contacts">
+    <ion-item-sliding *ngFor="let person of persons">
       <ion-item>
         <ion-avatar item-start>
-          <img src="{{contact.avatar}}">
+          <img src="{{person.avatar}}">
+          <!--canvas class="item-md ion-img item-md"></canvas-->
         </ion-avatar>
-        <h2>{{contact.full_name}}</h2>
-        <p>{{contact.comment}}</p>
+        <h2>{{person.first_name}}</h2>
+        <p>{{person.comment}}</p>
       </ion-item>
       <ion-item-options>
         <button ion-button color="light" icon-start>

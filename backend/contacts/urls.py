@@ -20,5 +20,5 @@ urlpatterns = [
     #url(r'^(?P<pk>[0-9]+)/results/$', views.ResultsView.as_view(), name='results'),
     #url(r'^(?P<question_id>[0-9]+)/vote/$', views.vote, name='vote'),
     #url(r'^$', views.index, name='index'),
-    url(r'^api/persons_list$', views.persons_list, name='persons_list'),
+    url(r'^persons_list_get/api$', views.persons_list_get_api, name='persons_list_get_api'),
 ]

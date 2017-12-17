@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ContactsService } from '../../services/contacts.service'
+import { Person } from '../../models/person'
 
 class Contact {
   avatar: string;
@@ -22,11 +24,21 @@ export class ContactsPage {
     { avatar: 'assets/img/barrett.jpg',  full_name: 'Dana',    comment: 'I am The Gatekeeper!' }
   ]
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  persons: Person[];
+
+  constructor( public navCtrl: NavController, 
+  	           public navParams: NavParams,
+  	           private contactsService: ContactsService,
+  	            ) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ContactsPage');
   }
 
+  ngOnInit(){
+    this.contactsService.getPersonsList().subscribe(
+    	persons => this.persons=persons
+    );
+  }
 }

@@ -7,10 +7,9 @@ from django.http import HttpResponse
 import json
 from .models import Person
 
-# Create your views here.
 
-
-def persons_list(request):
+#@json
+def persons_list_get_api(request):
     """
     List of persons
     :param request:
@@ -28,6 +27,11 @@ def persons_list(request):
         table.append(rec)
 
     result = {'status': 'Ok',
-               'table': table}
+             'persons': table}
 
-    return HttpResponse(json.dumps(result), content_type='application/json')
+    response = HttpResponse(json.dumps(result), content_type='application/json')
+    response['Access-Control-Allow-Origin'] = '*'
+    response['Access-Control-Allow-Methods'] = 'GET, PUT, POST, DELETE, OPTIONS'
+    response['Access-Control-Allow-Headers'] = 'Origin, Content-Type, X-Auth-Token , Authorization'
+
+    return response
