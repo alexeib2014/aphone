@@ -13,9 +13,12 @@
 
     <ion-item-sliding *ngFor="let person of persons">
       <ion-item>
-        <ion-avatar item-start>
+        <ion-avatar item-start *ngIf="person.avatar">
           <img src="{{person.avatar}}">
           <!--canvas class="item-md ion-img item-md"></canvas-->
+        </ion-avatar>
+        <ion-avatar item-start *ngIf="!person.avatar">
+          <img src="assets/imgs/unknown_person.jpg">
         </ion-avatar>
         <h2>{{person.first_name}}</h2>
         <p>{{person.comment}}</p>

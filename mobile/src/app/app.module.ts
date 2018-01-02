@@ -8,7 +8,6 @@ import { ListPage } from '../pages/list/list';
 import { ContactsPage } from '../pages/contacts/contacts';
 import { AboutPage } from '../pages/about/about';
 
-import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { ContactsService } from '../services/contacts.service';
 
