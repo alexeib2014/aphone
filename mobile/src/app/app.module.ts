@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { ContactsPage } from '../pages/contacts/contacts';
 import { AboutPage } from '../pages/about/about';
+import { ImageEditorPage } from '../pages/image-editor/image-editor';
 
 import { HttpClientModule } from '@angular/common/http';
 import { ContactsService } from '../services/contacts.service';
@@ -20,7 +21,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     ListPage,
     ContactsPage,
-    AboutPage
+    AboutPage,
+    ImageEditorPage
   ],
   imports: [
     BrowserModule,
@@ -33,7 +35,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     ListPage,
     ContactsPage,
-    AboutPage
+    AboutPage,
+    ImageEditorPage
   ],
   providers: [
     StatusBar,

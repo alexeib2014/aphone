@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { ContactsPage } from '../pages/contacts/contacts';
 import { AboutPage } from '../pages/about/about';
+import { ImageEditorPage } from '../pages/image-editor/image-editor';
 
 @Component({
   templateUrl: 'app.html'
@@ -14,7 +15,7 @@ import { AboutPage } from '../pages/about/about';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = ImageEditorPage; //HomePage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -26,7 +27,8 @@ export class MyApp {
       { title: 'Home', component: HomePage },
       { title: 'List', component: ListPage },
       { title: 'Contacts', component: ContactsPage },
-      { title: 'About', component: AboutPage }
+      { title: 'About', component: AboutPage },
+      { title: 'ImageEditor', component: ImageEditorPage }
     ];
 
   }

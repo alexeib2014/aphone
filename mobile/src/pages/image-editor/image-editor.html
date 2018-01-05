@@ -1,0 +1,28 @@
+<ion-nav [root]="root"></ion-nav>
+
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>ImageEditor</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<table cellpadding="0" cellspacing="0" style="width:100%; height:100%">
+		<tr>
+			<td class="shadow"></td>
+			<td class="shadow"></td>
+			<td class="shadow"></td>
+		<tr>
+			<td class="shadow" style="width:15%"></td>
+			<td #viewPort></td>
+			<td class="shadow" style="width:15%"></td>
+		<tr>
+			<td class="shadow"></td>
+			<td class="shadow"></td>
+			<td class="shadow"></td>
+		</tr>
+	</table>
+</ion-content>
