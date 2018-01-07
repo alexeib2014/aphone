@@ -13,6 +13,7 @@ export class ImageEditorPage {
   @ViewChild("viewMask") viewMask: ElementRef;
   @ViewChild("viewPort")  viewPort: ElementRef;
   @ViewChild("imagePort") imagePort: ElementRef;
+  @ViewChild("image") image: ElementRef;
 
   winX : number;
   winY : number;
@@ -28,6 +29,11 @@ export class ImageEditorPage {
   vpoC : number;
   vpoM : number;
 
+  imageX : number = 0;
+  imageY : number = 0;
+  touchX : number = -100;
+  touchY : number = -100;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
@@ -42,6 +48,7 @@ export class ImageEditorPage {
 
     this.winW = controlBoard.clientWidth;
     this.winH = controlBoard.clientHeight;
+    imagePort.onclick = function(){ console.log('click') }
 
     viewMask.style.width = this.winW + 'px';
     viewMask.style.height = this.winH + 'px';
@@ -57,5 +64,47 @@ export class ImageEditorPage {
 
     imagePort.style.width = this.winW + 'px';
     imagePort.style.height = this.winH + 'px';
+  }
+
+  onMouseMove(event) {
+  	// console.log(event)
+  	if (event.buttons) {
+  		this.imageX += event.movementX;
+  		this.imageY += event.movementY;
+  		this.image.nativeElement.style.marginLeft = this.imageX + 'px';
+  		this.image.nativeElement.style.marginTop = this.imageY + 'px';
+  	}
+  }
+
+  onTouchMove(event) {
+	//console.log(event)
+	let touchX = event.changedTouches[0].clientX;
+	let touchY = event.changedTouches[0].clientY;
+	try {
+		touchX = event.changedTouches[1].clientX;
+		touchY = event.changedTouches[1].clientY;
+	} catch(e) {
+		return;
+	}
+	let movementX = touchX - this.touchX;
+	let movementY = touchY - this.touchY;
+	if ( this.touchX >= 0 && this.touchY >= 0) {
+		 // movementX*movementX > 20*20 &&
+	     // movementX*movementX < 100*100 &&
+	     // movementY*movementY > 20*20 &&
+	     // movementX*movementX < 100*100 ) {
+  		this.imageX += movementX;
+  		this.imageY += movementY;
+  		this.image.nativeElement.style.marginLeft = this.imageX + 'px';
+  		this.image.nativeElement.style.marginTop = this.imageY + 'px';
+	}
+	this.touchX = touchX;
+	this.touchY = touchY;
+  }
+
+  onTouchEnd() {
+  	console.log('onTouchEnd()')
+  	this.touchX = -100;
+    this.touchY = -100;
   }
 }
