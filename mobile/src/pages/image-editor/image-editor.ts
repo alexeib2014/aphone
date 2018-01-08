@@ -14,6 +14,7 @@ export class ImageEditorPage {
   @ViewChild("viewPort")  viewPort: ElementRef;
   @ViewChild("imagePort") imagePort: ElementRef;
   @ViewChild("image") image: ElementRef;
+  //@ViewChild("fileInput") fileInput: ElementRef;
 
   winX : number;
   winY : number;
@@ -33,6 +34,8 @@ export class ImageEditorPage {
   imageY : number = 0;
   touchX : number = -100;
   touchY : number = -100;
+
+  fileInputName : string = '';
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -106,5 +109,11 @@ export class ImageEditorPage {
   	console.log('onTouchEnd()')
   	this.touchX = -100;
     this.touchY = -100;
+  }
+
+  fileInputSelect() {
+  	let fileInput=document.getElementById('fileInput')['files'][0]
+  	console.log('Selected file',fileInput)
+  	this.fileInputName = fileInput.name;
   }
 }
