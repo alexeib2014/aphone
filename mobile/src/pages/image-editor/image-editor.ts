@@ -1,6 +1,6 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { ImageLibrary } from '../../services/image.library'
 
 @IonicPage()
 @Component({
@@ -36,6 +36,7 @@ export class ImageEditorPage {
   touchY : number = -100;
 
   fileInputName : string = '';
+  fileImage : ImageLibrary = undefined;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -83,19 +84,15 @@ export class ImageEditorPage {
 	//console.log(event)
 	let touchX = event.changedTouches[0].clientX;
 	let touchY = event.changedTouches[0].clientY;
-	try {
-		touchX = event.changedTouches[1].clientX;
-		touchY = event.changedTouches[1].clientY;
-	} catch(e) {
-		return;
-	}
+	//try {
+	//	touchX = event.changedTouches[1].clientX;
+	//	touchY = event.changedTouches[1].clientY;
+	//} catch(e) {
+	//	return;
+	//}
 	let movementX = touchX - this.touchX;
 	let movementY = touchY - this.touchY;
 	if ( this.touchX >= 0 && this.touchY >= 0) {
-		 // movementX*movementX > 20*20 &&
-	     // movementX*movementX < 100*100 &&
-	     // movementY*movementY > 20*20 &&
-	     // movementX*movementX < 100*100 ) {
   		this.imageX += movementX;
   		this.imageY += movementY;
   		this.image.nativeElement.style.marginLeft = this.imageX + 'px';
@@ -112,8 +109,16 @@ export class ImageEditorPage {
   }
 
   fileInputSelect() {
-  	let fileInput=document.getElementById('fileInput')['files'][0]
-  	console.log('Selected file',fileInput)
-  	this.fileInputName = fileInput.name;
+  	let fileInput=document.getElementById('fileInput')
+  	console.log('Selected file',fileInput['files'][0])
+  	this.fileInputName = fileInput['files'][0].name;
+  	//this.fileImage = new ImageLibrary( fileInput['files'][0], this.image );
+
+  	var fReader = new FileReader();
+	fReader.readAsDataURL(fileInput['files'][0]);
+	fReader.onloadend = function(event){
+	    var img = document.getElementById("image_img");
+    	img.src = event.target.result;
+	}
   }
 }
