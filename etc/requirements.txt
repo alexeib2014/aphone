@@ -19,7 +19,7 @@ pycparser==2.10
 pycurl==7.19.5
 pytz==2017.2
 pyzmq==14.4.0
-requests==2.4.3
+requests==2.20.0
 simplegeneric==0.8.1
 six==1.8.0
 tornado==3.2.2
