@@ -8,7 +8,7 @@ chardet==2.3.0
 colorama==0.3.2
 cryptography==0.6.1
 decorator==3.4.0
-html5lib==0.999
+html5lib==0.999999999
 ipython==2.3.0
 ndg-httpsclient==0.3.2
 pexpect==3.2
